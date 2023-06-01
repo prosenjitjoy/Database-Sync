@@ -5,4 +5,3 @@ podman exec -it postgres psql -U postgres -d postgres
 DATABASE_URL = "postgres://pgxuser:pgxpass@localhost:5432/pgxdb"
 
 go get -u github.com/jackc/pgx/v5
-go get -u github.com/jmoiron/sqlx
