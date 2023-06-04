@@ -1636,8 +1636,8 @@ audit_logging_options:
 
 # default options for full query logging - these can be overridden from command line when executing
 # nodetool enablefullquerylog
-# full_query_logging_options:
-  # log_dir:
+full_query_logging_options:
+  log_dir: /var/tmp/fql_logs
   # roll_cycle: HOURLY
   # block: true
   # max_queue_weight: 268435456 # 256 MiB
@@ -1715,7 +1715,7 @@ sasi_indexes_enabled: true
 
 # Enables creation of transiently replicated keyspaces on this node.
 # Transient replication is experimental and is not recommended for production use.
-transient_replication_enabled: true
+transient_replication_enabled: false
 
 # Enables the used of 'ALTER ... DROP COMPACT STORAGE' statements on this node.
 # 'ALTER ... DROP COMPACT STORAGE' is considered experimental and is not recommended for production use.

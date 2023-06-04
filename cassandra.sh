@@ -14,11 +14,11 @@ fi
 
 podman network create cluster
 
-podman run --name nodeX --network cluster --hostname nodeX -v ./cassandra/cassandra.yaml:/etc/cassandra/cassandra.yaml -v ./cassandra/nodeX:/var/lib/cassandra -m 1.2G -d cassandra:latest && sleep 60
+podman run --name nodeX --network cluster --hostname nodeX -v ./cassandra/cassandra.yaml:/etc/cassandra/cassandra.yaml -v ./cassandra/nodeX:/var/lib/cassandra -m 1.7G -d cassandra:latest && sleep 70
 
-podman run --name nodeY --network cluster --hostname nodeY -v ./cassandra/cassandra.yaml:/etc/cassandra/cassandra.yaml -v ./cassandra/nodeY:/var/lib/cassandra -e CASSANDRA_SEEDS=nodeX -m 1.2G -d cassandra:latest && sleep 60
+podman run --name nodeY --network cluster --hostname nodeY -v ./cassandra/cassandra.yaml:/etc/cassandra/cassandra.yaml -v ./cassandra/nodeY:/var/lib/cassandra -e CASSANDRA_SEEDS=nodeX -m 1.7G -d cassandra:latest && sleep 70
 
-podman run --name nodeZ --network cluster --hostname nodeZ -v ./cassandra/cassandra.yaml:/etc/cassandra/cassandra.yaml -v ./cassandra/nodeZ:/var/lib/cassandra -e CASSANDRA_SEEDS=nodeX,nodeY -m 1.2G -d cassandra:latest && sleep 60
+podman run --name nodeZ --network cluster --hostname nodeZ -v ./cassandra/cassandra.yaml:/etc/cassandra/cassandra.yaml -v ./cassandra/nodeZ:/var/lib/cassandra -e CASSANDRA_SEEDS=nodeX,nodeY -m 1.7G -d cassandra:latest && sleep 70
 
 podman exec -it nodeX nodetool status
 
